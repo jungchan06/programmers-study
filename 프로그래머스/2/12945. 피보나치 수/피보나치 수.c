@@ -1,21 +1,17 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
+#include<stdio.h>
 
-int solution(int n) {
-    
-    int F[100000];
-    
-    F[0] = 0;
-    
-    F[1] = 1;
+int solution(int n)
+{
+    long long fn;
+    long long fn_1 = 1;
+    long long fn_2 = 0;
     
     for(int i = 1; i < n; i++)
     {
-        F[i+1] = (F[i] + F[i-1])%1234567;
+        fn = (fn_1 + fn_2)%1234567;
+        fn_2 = fn_1;
+        fn_1 = fn;
     }
     
-    
-    
-    return F[n];
+    return fn;
 }
